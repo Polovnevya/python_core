@@ -4,3 +4,17 @@
 # Функция отвечает за получение факториала числа,
 # а в цикле необходимо выводить только первые n чисел, начиная с 1! и до n!.
 # Подсказка: факториал числа n — произведение чисел от 1 до n. Например, факториал четырёх 4! = 1 * 2 * 3 * 4 = 24.
+
+
+from functools import reduce
+
+
+def fact(n):
+    def my_func(prev_el, el):
+        return prev_el * el
+
+    my_list = (el for el in range(1, n + 1))
+    return reduce(my_func, my_list)
+
+
+print(fact(5))
