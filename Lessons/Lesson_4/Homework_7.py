@@ -11,6 +11,7 @@ from functools import reduce
 
 def fact(n):
     def my_func(prev_el, el):
+        print(prev_el * el)
         return prev_el * el
 
     my_list = (el for el in range(1, n + 1))
