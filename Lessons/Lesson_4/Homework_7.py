@@ -14,7 +14,7 @@ def fact(n):
         return prev_el * el
 
     my_list = (el for el in range(1, n + 1))
-    return reduce(my_func, my_list)
+    yield reduce(my_func, my_list)
 
 
-print(fact(5))
+print(list(fact(5)))
