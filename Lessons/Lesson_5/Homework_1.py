@@ -12,7 +12,7 @@ def write_2_file(user_filename, user_string):
     :return: Возвращает ошибку при неудачном обращении к файлу
     """
     try:
-        with open(f"{user_filename}.txt", "a+") as f_user_obj:
+        with open(f"{user_filename}.txt", "a+", encoding="utf-8") as f_user_obj:
             print(user_string, file=f_user_obj)
     except IOError:
         return IOError
@@ -27,7 +27,7 @@ def write_2_file_v2(user_filename, user_string):
     :return: Возвращает ошибку при неудачном обращении к файлу
     """
     try:
-        with open(f"{user_filename}_v2.txt", "a+") as f_user_obj:
+        with open(f"{user_filename}_v2.txt", "a+", encoding="utf-8") as f_user_obj:
             f_user_obj.write(f"{user_string}\n")
     except IOError:
         return IOError
