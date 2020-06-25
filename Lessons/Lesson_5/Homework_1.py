@@ -39,7 +39,6 @@ print("Введите данные для записи в файл\n"
 filename = input("Введите имя файла ")
 user_line = input("Введите строку ")
 while user_line != "":
-
     result = write_2_file(filename, user_line)
     result_v2 = write_2_file_v2(filename, user_line)
     if result == IOError:
