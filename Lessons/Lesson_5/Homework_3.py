@@ -46,15 +46,19 @@ def convert_list_of_string_2_list_of_dict(user_result):
     return employers[:]
 
 
-result = read_user_file("text_3.txt")
-list_of_employers = convert_list_of_string_2_list_of_dict(result)
-employers_min_salary = [employee for employee in list_of_employers if employee["Salary"] < 20000]
-employee_summ = 0
-for employee in list_of_employers:
-    employee_summ += employee["Salary"]
+filename = "text_3.txt"
+result = read_user_file(filename)
+if result != IOError:
+    list_of_employers = convert_list_of_string_2_list_of_dict(result)
+    employers_min_salary = [employee for employee in list_of_employers if employee["Salary"] < 20000]
+    employee_summ = 0
+    for employee in list_of_employers:
+        employee_summ += employee["Salary"]
 
-print(f"Сотрудники имеющие оклад меньше 20 тысяч")
-for employee in employers_min_salary:
-    print(employee["Last_name"], employee["Salary"])
+    print(f"Сотрудники имеющие оклад меньше 20 тысяч")
+    for employee in employers_min_salary:
+        print(employee["Last_name"], employee["Salary"])
 
-print(f"Средний оклад сотрудников составляет {round(employee_summ / len(list_of_employers), 3)}")
+    print(f"Средний оклад сотрудников составляет {round(employee_summ / len(list_of_employers), 3)}")
+else:
+    print("Ошибка доступа к файлу {filename}")
