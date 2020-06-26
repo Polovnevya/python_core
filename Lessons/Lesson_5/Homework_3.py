@@ -57,4 +57,4 @@ print(f"Сотрудники имеющие оклад меньше 20 тыся�
 for employee in employers_min_salary:
     print(employee["Last_name"], employee["Salary"])
 
-print(f"Средняя зарплата сотрудников составляет {round(employee_summ / len(list_of_employers), 3)}")
+print(f"Средний оклад сотрудников составляет {round(employee_summ / len(list_of_employers), 3)}")
