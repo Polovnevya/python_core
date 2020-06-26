@@ -6,9 +6,6 @@
 # Иванов 23543.12
 # Петров 13749.32
 
-from functools import reduce
-
-
 def read_user_file(filename):
     """Открывает файл, читает его построчно, добавляет строки в список file_lines
 
