@@ -35,7 +35,7 @@ def create_subjects_dict(user_string_list):
     for el in user_string_list:
         # генерируем список, если элемент равен "-" - отбрасываем этот элемент
         my_list = [x for x in el.split() if x != "-"]
-        # прогоняем список через функцию mapб используюя свою обертку над методом строк replace - убираем суффиксы
+        # прогоняем список через функцию map используюя свою обертку над методом строк replace - убираем суффиксы
         my_list_w_o_suffix = list(map(my_replace, my_list))
         # заполняем словарь
         subjects[my_list_w_o_suffix[0]] = sum(map(int, my_list_w_o_suffix[1:]))
