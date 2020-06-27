@@ -11,6 +11,8 @@
 # [{"firm_1": 5000, "firm_2": 3000, "firm_3": 1000}, {"average_profit": 2000}]
 # Подсказка: использовать менеджер контекста.
 
+import json
+
 
 def read_user_file(user_filename):
     """Открывает файл, читает его построчно, добавляет строки в список file_lines
@@ -69,14 +71,15 @@ if result != IOError:
     # смотрим все фирмы с положительной прибылью, суммируем прибыль, вычисляем среднюю прибыль
     for firm in profit_firms:
         firms_sum = firms_sum + (firm["Earnings"] - firm["Costs"])
-    average_profit = firms_sum / len(profit_firms)
+    average_profit["average_profit"] = firms_sum / len(profit_firms)
     # смотрим все фирмы вычисляем прибыль - отрицатеьную в том числе
     for firm in list_of_firms:
         profit_dict[firm["Firm_name"]] = (firm["Earnings"] - firm["Costs"])
     # формируем список включающий в себя 2 словаря
     # profit_dict - {"Имя_фирмы": прибыль} прибыль в том числе отрицательная
     # average_profit - средняя прибыль, высчитывалась без учета фирм с отрицательной прибылью
+    my_firm_list = [profit_dict, average_profit]
+    # Производим сериализацию в формат json и записываем в файл
+    with open(f'{filename.split(".")[0]}.json', "w", encoding="utf-8") as my_file:
+        json.dump(my_firm_list, my_file, indent=4)
 
-
-    #
-a = 123
