@@ -58,7 +58,7 @@ def convert_list_of_string_2_list_of_dict(user_result):
 filename = "text_7.txt"
 result = read_user_file(filename)
 if result != IOError:
-    # Получаем словарь с словарями содержащими фирмы
+    # Получаем список с словарями содержащими фирмы
     list_of_firms = convert_list_of_string_2_list_of_dict(result)
     # В генераторе отбрасываем фирмы имеющие прибыль меньше нуля
     profit_firms = [firm for firm in list_of_firms if (firm["Earnings"] - firm["Costs"]) > 0]
