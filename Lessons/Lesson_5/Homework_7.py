@@ -36,7 +36,10 @@ def convert_list_of_string_2_list_of_dict(user_result):
         "Costs": Затраты
     :return: возвращает список словарей при успехе, иначе ValueError
     """
-    firm = {с}
+    firm = {"Firm_name": None,
+            "Type_of_ownership": None,
+            "Earnings": None,
+            "Costs": None}
     firms = []
     for line in user_result:
         try:
@@ -53,15 +56,27 @@ def convert_list_of_string_2_list_of_dict(user_result):
 filename = "text_7.txt"
 result = read_user_file(filename)
 if result != IOError:
+    # Получаем словарь с словарями содержащими фирмы
     list_of_firms = convert_list_of_string_2_list_of_dict(result)
+    # В генераторе отбрасываем фирмы имеющие прибыль меньше нуля
     profit_firms = [firm for firm in list_of_firms if (firm["Earnings"] - firm["Costs"]) > 0]
+    # объявляем структуры - словарь с фирмами и их прибылями, а также словарь со средней прибылью.
     profit_dict = {}
     average_profit = {"average_profit": None}
+    # Временная переменная, храним там прибыль всех фирм с положительной прибылью -
+    # требуется для вычисления average_profit
     firms_sum = 0
+    # смотрим все фирмы с положительной прибылью, суммируем прибыль, вычисляем среднюю прибыль
     for firm in profit_firms:
-        profit_dict[firm["Firm_name"]] = (firm["Earnings"] - firm["Costs"])
         firms_sum = firms_sum + (firm["Earnings"] - firm["Costs"])
     average_profit = firms_sum / len(profit_firms)
+    # смотрим все фирмы вычисляем прибыль - отрицатеьную в том числе
+    for firm in list_of_firms:
+        profit_dict[firm["Firm_name"]] = (firm["Earnings"] - firm["Costs"])
+    # формируем список включающий в себя 2 словаря
+    # profit_dict - {"Имя_фирмы": прибыль} прибыль в том числе отрицательная
+    # average_profit - средняя прибыль, высчитывалась без учета фирм с отрицательной прибылью
+
 
     #
 a = 123
