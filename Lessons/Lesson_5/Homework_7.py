@@ -82,4 +82,3 @@ if result != IOError:
     # Производим сериализацию в формат json и записываем в файл
     with open(f'{filename.split(".")[0]}.json', "w", encoding="utf-8") as my_file:
         json.dump(my_firm_list, my_file, indent=4)
-
