@@ -22,12 +22,10 @@ def create_user_file(filename):
 
 
 def read_user_file(filename):
-    """Открывает файл, читает его построчно, добавляет строки в список file_lines
-
+    """Открывает файл читает все строки за раз
     :param filename: Принимает имя файла вместе с расширением
-    :return: возаращает список прочитаных строк file_lines, при неудаче возвращает ошибку IOError
+    :return: возаращает список прочитаных строк, при неудаче возвращает ошибку IOError
     """
-
     try:
         with open(filename, "r", encoding="utf-8") as f_user_obj:
             return f_user_obj.readline().split()
