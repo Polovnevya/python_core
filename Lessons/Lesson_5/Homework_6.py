@@ -10,7 +10,7 @@
 
 
 def read_user_file(filename):
-    """Открывает файл, читает его построчно, добавляет строки в список file_lines
+    """Открывает файл, читает все строки за раз, добавляет строки в список file_lines
     :param filename: Принимает имя файла вместе с расширением
     :return: возаращает список прочитаных строк file_lines, при неудаче возвращает ошибку IOError
     """
@@ -44,6 +44,6 @@ def create_subjects_dict(user_string_list):
 
 user_file_name = "text_6.txt"
 result = create_subjects_dict(read_user_file(user_file_name))
-# печатаем наш словарь, получаем итерар ключ + значение через метод items()
+# печатаем наш словарь, получаем итерар - ключ + значение через метод items()
 for key, value in result.items():
     print(f"{key}  {value}")
