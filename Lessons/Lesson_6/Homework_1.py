@@ -26,19 +26,19 @@ class TrafficLight:
             init()
             for second in range(1, int(self.red_time) + int(self.yellow_time) + int(self.red_time)):
                 for red_second in range(1, int(self.red_time) + 1):
-                    print(f"{Fore.BLACK + Back.RED}{red_second}", end="", flush=True)
+                    print(f"{Back.RED}{red_second}", end="", flush=True)
                     sleep(1)
-                    __color = "Red"
+                    TrafficLight.__color = "Red"
                     print("\b\b", end="")
                 for yellow_second in range(1, int(self.yellow_time) + 1):
-                    print(f"{Fore.BLACK + Back.YELLOW}{yellow_second}", end="", flush=True)
+                    print(f"{Back.YELLOW}{yellow_second}", end="", flush=True)
                     sleep(1)
-                    __color = "Yellow"
+                    TrafficLight.__color = "Yellow"
                     print("\b\b", end="")
                 for green_second in range(1, int(self.green_time) + 1):
-                    print(f"{Fore.BLACK + Back.GREEN}{green_second}", end="", flush=True)
+                    print(f"{Back.GREEN}{green_second}", end="", flush=True)
                     sleep(1)
-                    __color = "Green"
+                    TrafficLight.__color = "Green"
                     print("\b\b", end="")
 
         switch_colors()
