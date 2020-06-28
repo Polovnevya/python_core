@@ -7,3 +7,43 @@
 # Проверить работу примера, создав экземпляр и вызвав описанный метод.
 # Задачу можно усложнить, реализовав проверку порядка режимов,
 # и при его нарушении выводить соответствующее сообщение и завершать скрипт.
+
+
+from time import sleep
+from colorama import Back, Fore, init
+
+
+class TrafficLight:
+    __color = "Red"
+
+    def __init__(self, red_time=7, yellow_time=2, green_time=10):
+        self.green_time = green_time
+        self.yellow_time = yellow_time
+        self.red_time = red_time
+
+    def running(self):
+        def switch_colors():
+            init()
+            for second in range(1, int(self.red_time) + int(self.yellow_time) + int(self.red_time)):
+                for red_second in range(1, int(self.red_time) + 1):
+                    print(f"{Fore.BLACK + Back.RED}{red_second}", end="", flush=True)
+                    sleep(1)
+                    __color = "Red"
+                    print("\b\b", end="")
+                for yellow_second in range(1, int(self.yellow_time) + 1):
+                    print(f"{Fore.BLACK + Back.YELLOW}{yellow_second}", end="", flush=True)
+                    sleep(1)
+                    __color = "Yellow"
+                    print("\b\b", end="")
+                for green_second in range(1, int(self.green_time) + 1):
+                    print(f"{Fore.BLACK + Back.GREEN}{green_second}", end="", flush=True)
+                    sleep(1)
+                    __color = "Green"
+                    print("\b\b", end="")
+
+        switch_colors()
+
+
+my_light = TrafficLight()
+
+my_light.running()
