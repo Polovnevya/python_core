@@ -10,7 +10,7 @@
 
 
 from time import sleep
-from colorama import Back, Fore, init
+from colorama import Back, init
 
 
 class TrafficLight:
