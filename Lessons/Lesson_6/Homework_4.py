@@ -83,7 +83,7 @@ my_TownCar = TownCar(60, "White", "Kia", False)
 # my_WorkCar_2 = WorkCar(60, "Green", "Ural", False)
 # my_PoliceCar = PoliceCar(90, "Blue", "Ford", True)
 
-
+# TODO сделать метод класса Car для вывода информации о состоянии объекта через печать my_text
 my_text = f"Машина {my_TownCar.color} {my_TownCar.name} " \
           f" { 'движется,' if my_TownCar.is_move else 'стоит,' }" \
           f" текущая скорость {my_TownCar.show_speed()}," \
