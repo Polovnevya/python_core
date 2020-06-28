@@ -19,4 +19,4 @@ class Road:
 
 
 my_road = Road(20, 5000)
-print(f"Вес асфальта равено {my_road.calculation()/1000}")
+print(f"Вес асфальта равен {my_road.calculation()/1000}")
