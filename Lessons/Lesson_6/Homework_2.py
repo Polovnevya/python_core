@@ -5,3 +5,18 @@
 # Использовать формулу: длина*ширина*масса асфальта для покрытия одного кв метра дороги асфальтом,
 # толщиной в 1 см*число см толщины полотна. Проверить работу метода.
 # Например: 20м*5000м*25кг*5см = 12500 т
+
+
+class Road:
+
+    def __init__(self, _lenght, _width):
+        self._lenght = _lenght
+        self._width = _width
+
+    def calculation(self):
+        result = self._lenght * self._width * 25 * 5
+        return result
+
+
+my_road = Road(20, 5000)
+print(f"Вес асфальта равено {my_road.calculation()/1000}")
