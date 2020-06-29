@@ -46,6 +46,14 @@ class Car:
         else:
             return 0
 
+    def show_status(self):
+        my_text = f"Машина {self.color} {self.name} " \
+                  f"{'движется,' if self.is_move else 'стоит,'}" \
+                  f" текущая скорость {self.show_speed()}," \
+                  f" направление движения {self.direction if self.is_move else 'отсутствует'}," \
+                  f" это {'полицейская' if self.is_police else 'гражданская'} машина"
+        return print(my_text)
+
 
 class TownCar(Car):
     # Вариант 1 - переопределение метода show_speed
@@ -69,35 +77,63 @@ class WorkCar(Car):
         super().__init__(speed, color, name, is_police)
         if self.speed > 40:
             self.speed = 40
-            print(f"Для грузовых автомобилей {self.name} максимальная скорость ограничена {self.speed} км/ч")
+            print(
+                f"Внимание! Для грузовых автомобилей {self.name} максимальная скорость ограничена {self.speed} км/ч \n")
 
 
 class PoliceCar(Car):
     pass
 
 
-my_TownCar = TownCar(60, "White", "Kia", False)
-# my_TownCar_2 = TownCar(90, "Red", "Mercedes", False)
-# my_SportCar = SportCar(130, "Yellow", "Jaguar", False)
-# my_WorkCar = WorkCar(40, "Green", "Kamaz", False)
-# my_WorkCar_2 = WorkCar(60, "Green", "Ural", False)
-# my_PoliceCar = PoliceCar(90, "Blue", "Ford", True)
+my_town_car = TownCar(60, "White", "Kia", False)
+my_town_car_2 = TownCar(90, "Red", "Mercedes", False)
+my_sport_car = SportCar(130, "Yellow", "Jaguar", False)
+my_work_car = WorkCar(40, "Green", "Kamaz", False)
+my_work_car_2 = WorkCar(60, "Green", "Ural", False)
+my_police_car = PoliceCar(90, "Blue", "Ford", True)
 
-# TODO сделать метод класса Car для вывода информации о состоянии объекта через печать my_text
-my_text = f"Машина {my_TownCar.color} {my_TownCar.name} " \
-          f" { 'движется,' if my_TownCar.is_move else 'стоит,' }" \
-          f" текущая скорость {my_TownCar.show_speed()}," \
-          f" направление движения {my_TownCar.direction if my_TownCar.is_move else 'отсутствует'}," \
-          f" это {'полицейская' if my_TownCar.is_police else 'гражданская'} машина"
+my_town_car.show_status()
+my_town_car.go()
+my_town_car.show_status()
+my_town_car.stop()
+my_town_car.show_status()
 
-print(my_text)
-my_TownCar.go()
-print(my_text)
-my_TownCar.stop()
-print(my_text)
+print("* " * 18)
 
-print(f"Машина {my_TownCar.color} {my_TownCar.name} " \
-          f" { 'движется,' if my_TownCar.is_move else 'стоит,' }" \
-          f" текущая скорость {my_TownCar.show_speed()}," \
-          f" направление движения {my_TownCar.direction if my_TownCar.is_move else 'отсутствует'}," \
-          f" это {'полицейская' if my_TownCar.is_police else 'гражданская'} машина")
+my_town_car_2.show_status()
+my_town_car_2.go()
+my_town_car_2.show_status()
+my_town_car_2.stop()
+my_town_car_2.show_status()
+
+print("* " * 18)
+
+my_sport_car.show_status()
+my_sport_car.go()
+my_sport_car.show_status()
+my_sport_car.stop()
+my_sport_car.show_status()
+
+print("* " * 18)
+
+my_work_car.show_status()
+my_work_car.go()
+my_work_car.show_status()
+my_work_car.stop()
+my_work_car.show_status()
+
+print("* " * 18)
+
+my_work_car_2.show_status()
+my_work_car_2.go()
+my_work_car_2.show_status()
+my_work_car_2.stop()
+my_work_car_2.show_status()
+
+print("* " * 18)
+
+my_police_car.show_status()
+my_police_car.go()
+my_police_car.show_status()
+my_police_car.stop()
+my_police_car.show_status()
