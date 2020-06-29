@@ -10,7 +10,7 @@
 
 
 from time import sleep
-from colorama import Back, init
+from colorama import Back
 
 
 class TrafficLight:
@@ -23,7 +23,7 @@ class TrafficLight:
 
     def running(self):
         def switch_colors():
-            init()
+
             for second in range(1, int(self.red_time) + int(self.yellow_time) + int(self.red_time)):
                 for red_second in range(1, int(self.red_time) + 1):
                     print(f"{Back.RED}{red_second}", end="", flush=True)
