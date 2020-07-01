@@ -57,4 +57,4 @@ def write_2_file(user_filename, user_string):
 filename = "text_4.txt"
 result = read_user_file(filename)
 ru_result = get_translate(result)
-write_2_file(filename,ru_result)
+write_2_file(filename, ru_result)
