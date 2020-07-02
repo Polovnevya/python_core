@@ -19,13 +19,18 @@ class Matrix:
         for r_index, row in enumerate(self.l_matrix):
             my_matrix_str = "" if (my_matrix_str == "") else my_matrix_str + "\n"
             for c_index, column in enumerate(self.l_matrix[r_index]):
-                my_matrix_str = my_matrix_str + f"{column : <4}"
+                my_matrix_str = my_matrix_str + f"{column : ^ 5}"
         return str(my_matrix_str)
 
     def __add__(self, other):
-        pass
+        my_matrix_str = ""
+        for r_index, row in enumerate(self.l_matrix):
+            my_matrix_str = "" if (my_matrix_str == "") else my_matrix_str + "\n"
+            for c_index, column in enumerate(self.l_matrix[r_index]):
+                my_matrix_str += f"{(self.l_matrix[r_index][c_index] + other.l_matrix[r_index][c_index]): ^ 5}"
+        return my_matrix_str
 
 
 my_matrix_1 = Matrix([[1, 2, 7], [3, 4, 8], [5, 6, 9]])
 my_matrix_2 = Matrix([[10, 12, 17], [13, 14, 18], [15, 16, 19]])
-print(f"{my_matrix_1}\n+\n{my_matrix_2}\n=\n")
+print(f"{my_matrix_1}\n+\n{my_matrix_2}\n=\n{my_matrix_1 + my_matrix_2}")
