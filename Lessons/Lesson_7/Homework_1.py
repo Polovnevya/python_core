@@ -8,3 +8,24 @@
 # Результатом сложения должна быть новая матрица.
 # Подсказка: сложение элементов матриц выполнять поэлементно — первый элемент первой строки первой матрицы
 # складываем с первым элементом первой строки второй матрицы и т.д.
+
+
+class Matrix:
+    def __init__(self, l_matrix):
+        self.l_matrix = l_matrix
+
+    def __str__(self):
+        my_matrix_str = ""
+        for r_index, row in enumerate(self.l_matrix):
+            my_matrix_str = "" if (my_matrix_str == "") else my_matrix_str + "\n"
+            for c_index, column in enumerate(self.l_matrix[r_index]):
+                my_matrix_str = my_matrix_str + f"{column : <4}"
+        return str(my_matrix_str)
+
+    def __add__(self, other):
+        pass
+
+
+my_matrix_1 = Matrix([[1, 2, 7], [3, 4, 8], [5, 6, 9]])
+my_matrix_2 = Matrix([[10, 12, 17], [13, 14, 18], [15, 16, 19]])
+print(f"{my_matrix_1}\n+\n{my_matrix_2}\n=\n")
