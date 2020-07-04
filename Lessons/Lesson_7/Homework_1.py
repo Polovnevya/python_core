@@ -30,7 +30,7 @@ class Matrix:
             my_matrix_str = "" if (my_matrix_str == "") else my_matrix_str + "\n"
             for c_index, column in enumerate(self.l_matrix[r_index]):
                 my_matrix_str += f"{(self.l_matrix[r_index][c_index] + other.l_matrix[r_index][c_index])},"
-        # жуткий костыль, ибо невнимательно прочитал задание. возвращал строку вместо нового экземпляра класса
+        # жуткий костыль, ибо невнимательно прочитал задание. возвращал строку вместо нового экземпляра объекта
         my_matrix_1 = my_matrix_str.split(sep="\n")
         for i in my_matrix_1:
             my_matrix_2.append(i.split(sep=","))
