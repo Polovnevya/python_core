@@ -44,5 +44,5 @@ class Matrix:
 my_matrix_1 = Matrix([[1, 2, 7], [3, 4, 8], [5, 6, 9]])
 my_matrix_2 = Matrix([[10, 12, 17], [13, 14, 18], [15, 16, 19]])
 my_matrix_3 = my_matrix_1 + my_matrix_2
-print(f"проверяем что у нас возвращает результат сложения 2х матриц - "type(my_matrix_3))
+print(f"проверяем что у нас возвращает результат сложения 2х матриц - ", type(my_matrix_3))
 print(f"{my_matrix_1}\n+\n{my_matrix_2}\n=\n{my_matrix_1 + my_matrix_2}")
