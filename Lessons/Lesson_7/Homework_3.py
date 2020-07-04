@@ -23,3 +23,80 @@
 # Тогда метод make_order() вернет строку: *****\n*****\n**.
 # Или, количество ячеек клетки равняется 15, количество ячеек в ряду — 5.
 # Тогда метод make_order() вернет строку: *****\n*****\n*****.
+
+
+class Cell:
+    def __init__(self, nucleus):
+        self.nucleus = nucleus
+
+    def __add__(self, other):
+        return Cell(self.nucleus + other.nucleus)
+
+    def __sub__(self, other):
+        if (self.nucleus - other.nucleus) > 0:
+            return Cell(self.nucleus - other.nucleus)
+        else:
+            return f"Клетки не могут уменьшиться"
+
+    def __mul__(self, other):
+        return Cell(self.nucleus * other.nucleus)
+
+    def __truediv__(self, other):
+        try:
+            return Cell(self.nucleus // abs(other.nucleus))
+        except ZeroDivisionError:
+            return f"клетка не может поделиться"
+
+    def make_order(self, row):
+        nucleus_str = "*" * self.nucleus
+        start = 0
+        nucleus_str_arrange = ""
+        end = len(nucleus_str)
+        for el in range(1, end + 1, row):
+            nucleus_str_arrange += f"{(nucleus_str[start:row + start])}\n"
+            start += row
+        return nucleus_str_arrange
+
+
+order_num = 5
+print(f"Количесво ячек в ряду {order_num}")
+my_cell_1 = Cell(9)
+my_cell_2 = Cell(4)
+
+my_cell_3 = my_cell_1 + my_cell_2
+print(f"Сложение двух клеток,\n"
+      f" {my_cell_1.nucleus}\n{my_cell_1.make_order(order_num)}"
+      f" и\n"
+      f" {my_cell_2.nucleus}\n{my_cell_2.make_order(order_num)}"
+      f"=\n"
+      f" {my_cell_3.nucleus}\n{my_cell_3.make_order(order_num)}")
+
+print("--*" * 15)
+
+my_cell_3 = my_cell_1 - my_cell_2
+print(f"Вычитание двух клеток,\n"
+      f" {my_cell_1.nucleus}\n{my_cell_1.make_order(order_num)}"
+      f" и\n"
+      f" {my_cell_2.nucleus}\n{my_cell_2.make_order(order_num)}"
+      f"=\n"
+      f" {my_cell_3.nucleus}\n{my_cell_3.make_order(order_num)}")
+
+print("--*" * 15)
+
+my_cell_3 = my_cell_1 * my_cell_2
+print(f"Умножение двух клеток,\n"
+      f" {my_cell_1.nucleus}\n{my_cell_1.make_order(order_num)}"
+      f" и\n"
+      f" {my_cell_2.nucleus}\n{my_cell_2.make_order(order_num)}"
+      f"=\n"
+      f" {my_cell_3.nucleus}\n{my_cell_3.make_order(order_num)}")
+
+print("--*" * 15)
+
+my_cell_3 = my_cell_1 / my_cell_2
+print(f"Деление двух клеток,\n"
+      f" {my_cell_1.nucleus}\n{my_cell_1.make_order(order_num)}"
+      f" и\n"
+      f" {my_cell_2.nucleus}\n{my_cell_2.make_order(order_num)}"
+      f"=\n"
+      f" {my_cell_3.nucleus}\n{my_cell_3.make_order(order_num)}")
