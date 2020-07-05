@@ -10,3 +10,26 @@
 # только если введено число.
 # Класс-исключение должен не позволить пользователю ввести текст (не число) и отобразить соответствующее сообщение.
 # При этом работа скрипта не должна завершаться.
+
+
+class MyOnwErr(Exception):
+    def __init__(self, err_text):
+        self.err_text = err_text
+
+
+print(f"Для выхода из программы введите - stop")
+stop_flag = False
+my_numeric_list = []
+while not stop_flag:
+    my_digit_str = input("Введите число ")
+    try:
+        if my_digit_str.isnumeric():
+            my_numeric_list.append(int(my_digit_str))
+        elif my_digit_str.lower() == "stop":
+            print("Числа добавленные в список ")
+            print(*my_numeric_list,sep=", ")
+            break
+        else:
+            raise MyOnwErr(f"{my_digit_str} не является числом")
+    except MyOnwErr as err:
+        print(err)
