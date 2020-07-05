@@ -27,7 +27,7 @@ while not stop_flag:
             my_numeric_list.append(int(my_digit_str))
         elif my_digit_str.lower() == "stop":
             print("Числа добавленные в список ")
-            print(*my_numeric_list,sep=", ")
+            print(*my_numeric_list, sep=", ")
             break
         else:
             raise MyOnwErr(f"{my_digit_str} не является числом")
