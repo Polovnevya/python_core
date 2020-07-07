@@ -7,6 +7,7 @@
 
 
 from abc import ABC, abstractmethod
+import json
 
 
 class Warehouse:
@@ -24,11 +25,18 @@ class OfficeEquipment(ABC):
         self.warehouse_number = warehouse_number
 
 
+
 class Printer(OfficeEquipment):
     def __init__(self, inventory_number: int, brand: str, model: str, paper_size: str, warehouse_number: int,
                  tray_number: int):
         super().__init__(inventory_number, brand, model, paper_size, warehouse_number)
         self.tray_number = tray_number
+
+        @property
+        def get_full_info(self):
+            return f"производитель {self.brand}, модель {self.model}, размер лотка {paper_size}," \
+                   f" количество лотков {tray_number}, инвентаный номер {self.inventory_number}" \
+                   f" место расположения {warehouse_number}"
 
 
 class Scanner(OfficeEquipment):
@@ -49,4 +57,8 @@ class MultifunctionPrinter(OfficeEquipment):
 my_printer = Printer(100, "HP", "1100", "A4", 3, 2)
 my_scanner = Scanner(101, "Kodak", "Alaris S2070", "A4", 3, "600 dpi")
 my_mfu = MultifunctionPrinter(102, "Xerox", "WorkCentre 3225DNI", "A4", 3, "300 dpi", 1)
+
+my_office_department_warehouse = Warehouse(1, "Красных партизан 18")
+my_workshop_department_warehouse = Warehouse(3, "Октябрьская 59")
+
 print(my_printer)
