@@ -23,12 +23,14 @@ class Complex:
         return Complex(f"{re}{im}j")
 
     def __mul__(self, other):
-        re = int(self.x.real * other.x.real)
-        im = int(self.x.imag * other.x.imag)
+        re = (self.x.real * self.x.imag) - (other.x.real * other.x.imag)
+        im = + (self.x.real * other.x.imag + self.x.imag * other.x.real)
         return Complex(f"{re}{im}j")
 
 
-my_num1 = Complex("-3j")
-my_num2 = Complex("-2-3j")
+my_num1 = Complex("3+j")
+my_num2 = Complex("2-3j")
 my_num3 = my_num1 + my_num2
+print(f"({my_num1.x}) + {my_num2.x} = {my_num3.x}")
 my_num4 = my_num1 * my_num2
+print(f"({str(my_num1.x)}) * {str(my_num2.x)} = {my_num4.x}")
